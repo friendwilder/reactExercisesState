@@ -10,6 +10,19 @@ const numQuestions = 0;
 const numCorrect = 0;
 
 class App extends Component {
+  constructor(props) {
+  	super(props);
+    this.state = {
+    	name: "Initial State"
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+    handleClick() {
+    	this.setState({
+        	name: "React Rocks!"
+        })
+    }
+  
   render() {
     return (
       <div className="App">
@@ -19,10 +32,11 @@ class App extends Component {
         </header>
         <div className="game">
           <h2>Mental Math</h2>
+			<p>{this.state.name}</p>
           <div className="equation">
             <p className="text">{`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}</p>
           </div>
-          <button>True</button>
+          <button onClick={this.handleClick}>True</button>
           <button>False</button>
           <p className="text">
             Your Score: {numCorrect}/{numQuestions}
